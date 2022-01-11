@@ -1,3 +1,0 @@
-primeira letra maiuscula
-ordenação da notícia em destaque pelo created_at
-view com campo de quando foi criada e atualizada a noticia
