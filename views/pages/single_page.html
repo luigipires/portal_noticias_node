@@ -1,0 +1,64 @@
+<section>
+    <div class="single-noticia-page">
+        <div class="container">
+            <div class="single-noticia">
+                <div class="single-noticia-wrap">
+                    <h1><%= news.title %></h1>
+
+                    <div class="metadados">
+                        <div class="metadado-author">
+                            <% if (news.image_author){ %>
+                                <img src="../../public/imagens/autores/<%= news.image_author %>" />
+                            <% }else{ %>
+
+                                <div class="no-photo-author">
+                                    <h3><i class="fas fa-user"></i></h3>
+                                </div><!-- no-photo-author -->
+
+                            <% } %>
+
+                            <small><%= news.author %></small>
+
+                            <div class="clear"></div>
+                        </div><!-- metadado-author -->
+                        
+
+                        <div class="metadado-noticia">
+                            <h3 title="Visualizações"><i class="fas fa-eye"></i></h3>
+                            <p><%= news.views %></p>
+                        </div><!-- metadado-noticia -->
+
+                        <div class="clear"></div>
+                    </div><!-- metadados -->
+
+                    <p><%= news.content %></p>
+                </div><!-- single-noticia-wrap -->
+            </div><!-- single-noticia -->
+
+            <div class="mais-lidas-noticias">
+                <div class="feed-noticias">
+                    <h2>Mais lidas</h2>
+                    
+                    <% for (let i = 0; i < viewestNews.length; i++){ %>
+                        <div class="mais-lidas-noticias-wrap">
+
+                            <a href="/noticia/<%= viewestNews[i].url %>" title="<%= viewestNews[i].title %>">
+                                <div class="mais-lidas-noticias-single">
+                                    <div>
+                                        <img src="../../public/imagens/noticias/<%= viewestNews[i].image_news %>" />
+                                    </div>
+                                    
+                                    <div>
+                                        <h4><%= viewestNews[i].category.toUpperCase() %></h4>
+                                        <p><%= viewestNews[i].content.substr(0, 100) %>...</p>
+                                    </div>
+                                </div><!-- mais-lidas-noticias-single -->
+                            </a>
+                            
+                        </div><!-- mais-lidas-noticias-wrap -->
+                    <% } %>
+                </div><!-- feed-noticias -->
+            </div><!-- mais-lidas-noticias -->
+        </div><!-- container -->
+    </div><!-- single-noticia-page -->
+</section>

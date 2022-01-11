@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Portal de notícias</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel='stylesheet' type='text/css' media='screen' href='/public/css/main.css'>
+
+    <!-- SEO -->
+	<meta name="keywords" content="palavras-chave,do,meu,site">
+	<meta name="description" content="Descrição do meu website">
+	<meta name="author" content="autor do site">
+
+	<!-- SMO -->
+	<meta property="og:title" content="título do seu site">
+	<meta property="og:site_name" content="nome do seu site">
+	<meta property="og:description" content="descrição do seu site">
+	<meta property="og:url" content="url do seu site">
+	<meta property="og:image" content="imagem/foto do seu site">
+	<meta property="og:image:type" content="tipo da imagem/foto do seu site">
+</head>
+<body>
+    <%- include('templates/header.html'); %>
+    
+    <% if(setPage == 'home'){ %>
+        <%- include('pages/main.html'); %> 
+    <% }else if(setPage == 'single'){ %>
+        <%- include('pages/single_page.html'); %>
+    <% }else if(setPage == 'busca'){ %>
+        <%- include('pages/busca.html'); %> 
+    <% } %>
+     
+    <%- include('templates/footer.html'); %> 
+</body>
+</html>

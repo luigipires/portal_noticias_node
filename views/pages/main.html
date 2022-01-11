@@ -1,0 +1,117 @@
+<section>
+    <div class="noticia-main">
+        <div class="container">
+            <a href="/noticia/<%= news[0].url %>" title="<%= news[0].title.toUpperCase() %>">
+
+                <div class="noticia-banner" style="background-image: url('../../public/imagens/noticias/<%= news[0].image_news %>');">
+                    <div class="noticia-resumo">
+                        <div class="metadado-action">
+                            <div class="autor">
+                                <% if (news[0].image_author){ %>
+                                    <img src="../../public/imagens/autores/<%= news[0].image_author %>" />
+                                <% }else{ %>
+
+                                    <div class="no-photo-author">
+                                        <h3><i class="fas fa-user"></i></h3>
+                                    </div><!-- no-photo-author -->
+
+                                <% } %>
+                                
+                                <p><%= news[0].author %> </p>
+
+                                <div class="clear"></div>
+                            </div><!-- autor -->
+
+                            <div class="action">
+                                <h3><i class="fas fa-heart"></i></h3>
+                            </div><!-- action -->
+                        </div><!-- metadado-action -->
+
+                        <div class="conteudo-noticia-preview">
+                            <h4><%= news[0].title.toUpperCase() %> </h4>
+                            <p><%= news[0].content.substr(0, 300) %>... </p>
+                        </div><!-- conteudo-noticia-preview -->
+                    </div><!-- noticia-resumo -->
+                </div><!-- noticia-banner -->
+
+            </a>
+        </div><!-- container -->
+    </div><!-- noticia-main -->
+</section>
+
+<section>
+    <div class="noticias-geral">
+        <h2>Últimas publicações</h2>
+
+        <div class="container">
+            <div class="noticias-publico">
+                <div class="ultimas-noticias">
+
+                    <% if (news.length == 1){ %>
+                        <div class="ultimas-noticias-wrap">
+
+                            <a href="/noticia/<%= news[0].url %>" title="<%= news[0].title.toUpperCase() %>">
+                                <div class="ultimas-noticias-single">
+                                    <img src="../../public/imagens/noticias/<%= news[0].image_news %>" />
+
+                                    <div>
+                                        <small><%= news[0].category.toUpperCase() %></small>
+                                        <h4><%= news[0].title %></h4>
+                                        <p><%= news[0].content.substr(0, 100) %>...</p>
+                                    </div>
+                                </div><!-- ultimas-noticias-single -->
+                            </a>
+
+                        </div><!-- ultimas-noticias-wrap -->
+                    <% }else{ %>
+
+                        <% for (let i = 1; i < news.length; i++){ %>
+                            <div class="ultimas-noticias-wrap">
+
+                                <a href="/noticia/<%= news[i].url %>" title="<%= news[i].title.toUpperCase() %>">
+                                    <div class="ultimas-noticias-single">
+                                        <img src="../../public/imagens/noticias/<%= news[i].image_news %>" />
+
+                                        <div>
+                                            <small><%= news[i].category.toUpperCase() %></small>
+                                            <h4><%= news[i].title %></h4>
+                                            <p><%= news[i].content.substr(0, 100) %>...</p>
+                                        </div>
+                                    </div><!-- ultimas-noticias-single -->
+                                </a>
+
+                            </div><!-- ultimas-noticias-wrap -->
+                        <% } %>
+
+                    <% } %>
+                </div><!-- ultimas-noticias -->
+
+                <div class="mais-lidas-noticias">
+                    <div class="feed-noticias">
+                        <h2>Mais lidas</h2>
+                        
+                        <% for (let i = 0; i < viewestNews.length; i++){ %>
+                            <div class="mais-lidas-noticias-wrap">
+
+                                <a href="/noticia/<%= viewestNews[i].url %>" title="<%= viewestNews[i].title.toUpperCase() %>">
+                                    <div class="mais-lidas-noticias-single">
+                                        <div>
+                                            <img src="../../public/imagens/noticias/<%= viewestNews[i].image_news %>" />
+                                        </div>
+                                        
+                                        <div>
+                                            <h4><%= viewestNews[i].category.toUpperCase() %></h4>
+                                            <p><%= viewestNews[i].content.substr(0, 70) %>...</p>
+                                        </div>
+                                    </div><!-- mais-lidas-noticias-single -->
+                                </a>
+                                
+                            </div><!-- mais-lidas-noticias-wrap -->
+                        <% } %>
+                    </div><!-- feed-noticias -->
+                </div><!-- mais-lidas-noticias -->
+            </div><!-- noticias-publico -->
+        </div><!-- container -->
+    </div><!-- noticias-geral -->
+</section>
+

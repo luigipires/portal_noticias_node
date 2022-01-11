@@ -1,0 +1,28 @@
+<section>
+    <div class="page-busca">
+        <div class="container">
+            <div class="resultados">
+                <h2>Resultados de: <b><%= busca %></b> | <%= news.length %> resultados encontrados</h2>
+                
+                <% for (let i = 0; i < news.length; i++){ %>
+                    <div class="resultados-wrap">
+
+                        <a href="/noticia/<%= news[i].url %>" title="<%= news[i].title.toUpperCase() %>">
+                            <div class="resultado-single">
+                                <div>
+                                    <img src="../../public/imagens/noticias/<%= news[i].image_news %>" />
+                                </div>
+                                
+                                <div>
+                                    <h4><%= news[i].category.toUpperCase() %></h4>
+                                    <p><%= news[i].title %></p>
+                                </div>
+                            </div><!-- resultado-single -->
+                        </a>
+                        
+                    </div><!-- resultados-wrap -->
+                <% } %>
+            </div><!-- resultados -->
+        </div><!-- container -->
+    </div><!-- page-busca -->
+</section>
